@@ -1,7 +1,17 @@
 
+var url = window.location.href;
+var swLocation = '/twittor/sw.js';
+
 
 if ( navigator.serviceWorker )  {
-    navigator.serviceWorker.register('/sw.js');
+
+    if ( url.includes('localhos') ){
+        swLocation = '/sw.js'
+    }
+    
+
+    //navigator.serviceWorker.register('/sw.js'); //esta ubicacion es valida para desarrollo pero no para produccion
+    navigator.serviceWorker.register(swLocation);
 }
 
 
